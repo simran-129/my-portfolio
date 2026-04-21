@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f3f5f8;
+  --color-accent: #1d4ed8;
+  --color-accent-light: #93c5fd;
+  --color-accent-pale: #eff6ff;
+}
+
+:root {
+  --font-display: "DM Serif Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --accent: #1d4ed8;
+  --accent-light: #93c5fd;
+  --accent-pale: #eff6ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: #0f172a;
+}
+
+#root {
+  width: 100%;
+  min-height: 100dvh;
+  isolation: isolate;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--accent-light);
+  color: #0f172a;
+}
+
+section {
+  scroll-margin-top: 72px;
+}
