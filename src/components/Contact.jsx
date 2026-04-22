@@ -49,7 +49,7 @@ function GitHubLogo({ className }) {
 }
 
 const linkCardClass =
-  "group flex w-full max-w-lg items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-4 text-left transition-all hover:border-accent/30";
+  "group flex h-full w-full items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-4 text-left transition-all hover:border-accent/30";
 
 const iconWrapClass =
   "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-slate-50/90";
@@ -94,7 +94,7 @@ export default function Contact() {
         initial={{ opacity: 0, y: 14 }}
         animate={linksInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="flex w-full flex-col items-start gap-4"
+        className="grid w-full gap-4 md:grid-cols-2 lg:grid-cols-3"
       >
         <button
           type="button"

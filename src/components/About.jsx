@@ -5,16 +5,13 @@ import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 import PmTerm from "./PmTerm";
 
-function SkillCapabilityTag({ skill, index }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.55 });
+function SkillCapabilityTag({ skill, index, sectionHovered }) {
   const [hover, setHover] = useState(false);
-  const showFill = inView || hover;
+  const showFill = sectionHovered || hover;
   const fill = Math.min(1, Math.max(0.1, skill.depth / 5));
 
   return (
     <motion.div
-      ref={ref}
       onHoverStart={() => setHover(true)}
       onHoverEnd={() => setHover(false)}
       whileHover={{ scale: 1.04, y: -1 }}
@@ -26,8 +23,8 @@ function SkillCapabilityTag({ skill, index }) {
         className="pointer-events-none absolute inset-0 origin-left rounded-full bg-gradient-to-r from-accent-pale via-sky-100/95 to-accent-light"
         animate={{ scaleX: showFill ? fill : 0 }}
         transition={{
-          duration: inView ? 0.82 : 0.36,
-          delay: inView ? 0.08 + index * 0.055 : 0,
+          duration: showFill ? 0.82 : 0.3,
+          delay: showFill ? 0.08 + index * 0.055 : 0,
           ease: [0.16, 1, 0.3, 1],
         }}
         aria-hidden
@@ -40,6 +37,7 @@ function SkillCapabilityTag({ skill, index }) {
 
 export default function About() {
   const sectionRef = useRef(null);
+  const [capabilitiesHovered, setCapabilitiesHovered] = useState(false);
   const sectionInView = useInView(sectionRef, { once: true, amount: 0.12 });
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -134,9 +132,18 @@ export default function About() {
         <div>
           <Reveal delay={0.08}>
             <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-400">Capabilities</p>
-            <div className="flex flex-wrap gap-2.5">
+            <div
+              className="flex flex-wrap gap-2.5"
+              onMouseEnter={() => setCapabilitiesHovered(true)}
+              onMouseLeave={() => setCapabilitiesHovered(false)}
+            >
               {skills.map((skill, i) => (
-                <SkillCapabilityTag key={skill.name} skill={skill} index={i} />
+                <SkillCapabilityTag
+                  key={skill.name}
+                  skill={skill}
+                  index={i}
+                  sectionHovered={capabilitiesHovered}
+                />
               ))}
             </div>
           </Reveal>

@@ -4,7 +4,7 @@ export const personal = {
   tagline:
     "Technical product manager turning ambiguous goals into shipped software, from AI/ML platforms to accessibility and safety-critical products.",
   shortBio:
-    "I'm pursuing an M.S. in Engineering Management at Northeastern while building digital products in higher-ed IT and consulting. Previously I spent four years at Capgemini on autonomous-vehicle R&D with Mercedes-Benz: roadmap ownership, Agile delivery, and cross-functional execution across engineering, QA, and business stakeholders.",
+    "M.S. Engineering Management candidate at Northeastern, building digital products across higher-ed IT and consulting. Previously spent 4 years at Capgemini with Mercedes-Benz R&D, leading roadmap execution, Agile delivery, and cross-functional alignment.",
   email: "singh.simran@northeastern.edu",
   phone: "(857) 707-9451",
   linkedin: "https://www.linkedin.com/in/singh-simran",
@@ -34,9 +34,10 @@ export const aboutContent = {
     outcome: "so that teams ship reliable products users trust, especially where ambiguity, compliance, or scale meet the roadmap.",
   },
   acceptanceCriteria: [
-    "Translate fuzzy goals into OKR-aligned epics, sprint-ready backlogs, and clear trade-offs.",
-    "Close the loop with users and data before commitment through interviews, audits, and validation with engineering and design.",
-    "Document flows, APIs, and UX so squads can execute independently without losing alignment.",
+    "Goals are ambiguous. Backlogs are not.",
+    "Users are interviewed before commitment, not after complaints.",
+    "Three squads can ship independently because the docs actually exist.",
+    "Done means metrics moved, not just merged to main.",
   ],
   /** About section impact snapshot; numbers tie to experience highlights in this file. */
   impactSnapshot: [

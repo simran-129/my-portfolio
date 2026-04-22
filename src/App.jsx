@@ -5,6 +5,7 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import { personal } from "./data/content";
 
 export default function App() {
   return (
@@ -24,7 +25,8 @@ export default function App() {
         <Contact />
       </main>
       <footer className="relative z-[2] w-full border-t border-slate-200/80 px-6 py-10 text-center text-xs text-slate-400 sm:px-8 lg:px-10">
-        Built with React + Tailwind · Deployed on Vercel
+        {"\u00a9 "}
+        {new Date().getFullYear()} {personal.name} {personal.lastName}. All rights reserved.
       </footer>
     </motion.div>
   );
