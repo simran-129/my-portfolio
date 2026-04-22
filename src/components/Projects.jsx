@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { projects, projectFilters, filterProjects } from "../data/content";
+import { PM_HINTS } from "../data/pmHints";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
+import PmTerm from "./PmTerm";
 
 const COLUMNS = [
   {
@@ -106,26 +108,21 @@ function ProjectCard({ project, index, columnIndex }) {
       <div className="pl-3.5 pr-3 py-3.5">
         <div className="mb-2 flex items-start justify-between gap-2">
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className="font-mono text-[10px] font-medium uppercase tracking-wide text-slate-400">{keyLabel}</span>
+            <PmTerm k="issueKey" className="font-mono text-[10px] font-medium uppercase tracking-wide text-slate-400">
+              {keyLabel}
+            </PmTerm>
             <span
               className={`rounded border px-1.5 py-px text-[9px] font-semibold uppercase tracking-wide ${priorityStyles(priority)}`}
-              title={
-                priority === "P0"
-                  ? "P0: highest priority / must-ship"
-                  : priority === "P1"
-                    ? "P1: important next"
-                    : "P2: smaller or exploratory"
-              }
             >
               {priority}
             </span>
           </div>
-          <span
+          <PmTerm
+            text={`${PM_HINTS.storyPoints} (${points}).`}
             className="flex h-7 min-w-[1.75rem] shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-cream px-1.5 font-mono text-[11px] font-semibold text-accent"
-            title={`Story points: relative effort (${points}); not hours`}
           >
             {points}
-          </span>
+          </PmTerm>
         </div>
 
         <h3 className="mb-1.5 text-[15px] font-semibold leading-snug text-slate-900 transition-colors group-hover:text-accent">
@@ -295,7 +292,9 @@ function ListRow({ project, index }) {
     >
       <div className="min-w-0 flex-1">
         <div className="mb-1 flex flex-wrap items-center gap-2">
-          <span className="font-mono text-[10px] text-slate-400">{keyLabel}</span>
+          <PmTerm k="issueKey" className="font-mono text-[10px] text-slate-400">
+            {keyLabel}
+          </PmTerm>
           <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-medium text-slate-600">
             {columnLabel(project.column)}
           </span>
@@ -346,22 +345,35 @@ function TableView({ items }) {
       <table className="w-full min-w-[520px] border-collapse text-left text-sm">
         <thead>
           <tr className="border-b border-slate-200 bg-slate-50/80 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
-            <th className="px-4 py-3 font-medium">Key</th>
+            <th className="px-4 py-3 font-medium">
+              <PmTerm k="issueKey">Key</PmTerm>
+            </th>
             <th className="px-4 py-3 font-medium">Title</th>
             <th className="px-4 py-3 font-medium">Lane</th>
             <th className="px-4 py-3 font-medium">Type</th>
-            <th className="px-4 py-3 font-medium text-center">Pts</th>
+            <th className="px-4 py-3 text-center font-medium">
+              <PmTerm k="storyPoints">Pts</PmTerm>
+            </th>
             <th className="px-4 py-3 font-medium">Links</th>
           </tr>
         </thead>
         <tbody>
           {items.map((project) => (
             <tr key={project.id} className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50">
-              <td className="px-4 py-3 font-mono text-xs text-slate-400">{project.issueKey ?? `PORT-${project.id}`}</td>
+              <td className="px-4 py-3 font-mono text-xs text-slate-400">
+                <PmTerm k="issueKey">{project.issueKey ?? `PORT-${project.id}`}</PmTerm>
+              </td>
               <td className="max-w-[220px] px-4 py-3 font-medium text-slate-900">{project.title}</td>
               <td className="px-4 py-3 text-xs text-slate-600">{columnLabel(project.column)}</td>
               <td className="px-4 py-3 text-xs text-slate-500">{project.type}</td>
-              <td className="px-4 py-3 text-center font-mono text-xs text-accent">{project.storyPoints ?? "N/A"}</td>
+              <td className="px-4 py-3 text-center font-mono text-xs text-accent">
+                <PmTerm
+                  text={`${PM_HINTS.storyPoints} (${project.storyPoints ?? "N/A"}).`}
+                  className="font-mono text-xs text-accent"
+                >
+                  {project.storyPoints ?? "N/A"}
+                </PmTerm>
+              </td>
               <td className="px-4 py-3">
                 <div className="flex flex-wrap gap-2">
                   {externalUrl(project.github) ? (

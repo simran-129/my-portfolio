@@ -3,6 +3,7 @@ import { motion, useInView, AnimatePresence, useScroll, useSpring, useTransform 
 import { experience } from "../data/content";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
+import PmTerm from "./PmTerm";
 
 function ExperienceCard({ item, index }) {
   const ref = useRef(null);
@@ -20,7 +21,9 @@ function ExperienceCard({ item, index }) {
       <div className="mb-4 flex flex-wrap items-start justify-between gap-3 border-b border-slate-100 pb-4">
         <div>
           <p className="mb-2 inline-flex items-center gap-2 rounded-md border border-slate-200/90 bg-slate-50/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-600">
-            <span className="font-mono text-[9px] text-accent">Epic</span>
+            <PmTerm k="epic" className="font-mono text-[9px] text-accent">
+              Epic
+            </PmTerm>
             <span className="text-slate-800">{item.epic ?? "Product delivery"}</span>
           </p>
           <p className="font-mono text-[11px] font-medium text-slate-400">{item.objective ?? "Objective"}</p>

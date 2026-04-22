@@ -2,6 +2,7 @@ import { useMemo, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 import { personal, projects } from "../data/content";
+import PmTerm from "./PmTerm";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 22 },
@@ -62,16 +63,21 @@ export default function Hero() {
             >
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
                 <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-wide text-slate-400">
-                  <span className="rounded-md border border-slate-200/90 bg-cream px-2 py-0.5">PRD-001</span>
+                  <PmTerm k="prd" className="rounded-md border border-slate-200/90 bg-cream px-2 py-0.5">
+                    PRD-001
+                  </PmTerm>
                   <span className="hidden sm:inline">Candidate overview</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   <span className="rounded-full border border-accent/20 bg-accent-pale/70 px-2.5 py-0.5 text-[10px] font-semibold text-accent">
                     Status · Active
                   </span>
-                  <span className="rounded-full border border-slate-200/90 bg-white px-2.5 py-0.5 text-[10px] text-slate-500">
+                  <PmTerm
+                    k="sprint"
+                    className="rounded-full border border-slate-200/90 bg-white px-2.5 py-0.5 text-[10px] text-slate-500"
+                  >
                     Sprint · Portfolio ‘26
-                  </span>
+                  </PmTerm>
                 </div>
               </div>
               <div className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto] sm:items-end">
@@ -106,13 +112,19 @@ export default function Hero() {
           </motion.div>
 
           <motion.div {...fadeUp(0.2)} className="relative mb-2 max-w-xl lg:mb-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Problem statement</p>
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+              <PmTerm k="problemStatement">Problem statement</PmTerm>
+            </p>
             <p className="mt-1.5 text-base leading-relaxed text-slate-600 md:text-lg">{personal.tagline}</p>
           </motion.div>
 
           <motion.div {...fadeUp(0.28)} className="relative mb-5 flex flex-wrap gap-2 text-[11px] text-slate-400 lg:mb-6">
-            <span className="rounded-md border border-slate-100 bg-white/90 px-2 py-1 font-mono shadow-sm">KR · Ship a credible portfolio</span>
-            <span className="rounded-md border border-slate-100 bg-white/90 px-2 py-1 font-mono shadow-sm">KR · Show technical fluency</span>
+            <PmTerm k="kr" className="rounded-md border border-slate-100 bg-white/90 px-2 py-1 font-mono shadow-sm">
+              KR · Ship a credible portfolio
+            </PmTerm>
+            <PmTerm k="kr" className="rounded-md border border-slate-100 bg-white/90 px-2 py-1 font-mono shadow-sm">
+              KR · Show technical fluency
+            </PmTerm>
           </motion.div>
 
           <motion.div
@@ -145,7 +157,9 @@ export default function Hero() {
                   From idea to <span className="font-display italic text-accent">ship</span>
                 </p>
               </div>
-              <span className="rounded-md border border-slate-200 bg-cream px-2 py-0.5 font-mono text-[10px] text-slate-500">PORT</span>
+              <PmTerm k="issueKey" className="rounded-md border border-slate-200 bg-cream px-2 py-0.5 font-mono text-[10px] text-slate-500">
+                PORT
+              </PmTerm>
             </div>
 
             <div className="grid min-h-[168px] grid-cols-3 grid-rows-1 gap-2 sm:min-h-[188px] sm:gap-2.5 lg:min-h-0 lg:flex-1 lg:gap-3">
