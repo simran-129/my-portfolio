@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -28,6 +29,7 @@ export default function App() {
         {"\u00a9 "}
         {new Date().getFullYear()} {personal.name} {personal.lastName}. All rights reserved.
       </footer>
+      <Analytics />
     </motion.div>
   );
 }
