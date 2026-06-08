@@ -151,6 +151,36 @@ export const projects = [
     column: "hackathon",
   },
   {
+    id: 9,
+    title: "Invoice Agent",
+    description:
+      "Multi-agent invoice processing pipeline for accounts payable automation: four-stage flow with three LLM agents (Extractor, Approver, Logger) and a deterministic Python validator—extract structured data from PDFs with pdfplumber pre-read, run seven business-rule checks (math, PO, duplicates, overdue), apply tiered LLM approval policy, and append an immutable JSONL audit trail. Exposed via CLI, FastAPI REST API with OpenAPI docs, and a React + Vite demo UI. Built with CrewAI, Anthropic Claude, Pydantic v2, and FastAPI.",
+    tags: ["AI", "CrewAI", "Python", "FastAPI", "React", "Multi-Agent", "LLM"],
+    type: "Personal Project",
+    github: "https://github.com/simran-129/invoice-agent",
+    live: "",
+    featured: true,
+    issueKey: "PORT-107",
+    storyPoints: 8,
+    priority: "P0",
+    column: "inProgress",
+  },
+  {
+    id: 5,
+    title: "Meal Prepper",
+    description:
+      "Identified three unmet user needs in meal prep (decision fatigue, fragmented shopping, and inefficient execution) and defined a voice-first mobile product to solve all three. Authored full PRD covering 9 core user flows, structured recipe data model, ingredient normalization engine, and a dependency-aware prep orchestration system that merges duplicate tasks across recipes. Designed a phased go-to-market strategy across three releases, from manual grocery export to direct multi-provider cart splitting across Instacart, Weee, and Walmart. Defined north star metrics, AI guardrails for personalization and substitution, and a container-aware portioning system built around the principle that meal prep is a workflow problem, not a recipe browsing problem.",
+    tags: ["Product Strategy", "PRD", "Roadmap", "AI", "Mobile", "Voice-First", "UX"],
+    type: "Personal Project",
+    github: "",
+    live: "",
+    featured: true,
+    issueKey: "PORT-104",
+    storyPoints: 8,
+    priority: "P0",
+    column: "inProgress",
+  },
+  {
     id: 3,
     title: "Portfolio Website",
     description:
@@ -179,21 +209,6 @@ export const projects = [
     storyPoints: 13,
     priority: "P0",
     column: "shipped",
-  },
-  {
-    id: 5,
-    title: "Meal Prepper",
-    description:
-      "Identified three unmet user needs in meal prep (decision fatigue, fragmented shopping, and inefficient execution) and defined a voice-first mobile product to solve all three. Authored full PRD covering 9 core user flows, structured recipe data model, ingredient normalization engine, and a dependency-aware prep orchestration system that merges duplicate tasks across recipes. Designed a phased go-to-market strategy across three releases, from manual grocery export to direct multi-provider cart splitting across Instacart, Weee, and Walmart. Defined north star metrics, AI guardrails for personalization and substitution, and a container-aware portioning system built around the principle that meal prep is a workflow problem, not a recipe browsing problem.",
-    tags: ["Product Strategy", "PRD", "Roadmap", "AI", "Mobile", "Voice-First", "UX"],
-    type: "Personal Project",
-    github: "",
-    live: "",
-    featured: true,
-    issueKey: "PORT-104",
-    storyPoints: 8,
-    priority: "P0",
-    column: "inProgress",
   },
   {
     id: 6,
