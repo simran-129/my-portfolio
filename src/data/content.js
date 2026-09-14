@@ -7,7 +7,7 @@ export const personal = {
     "M.S. Engineering Management candidate at Northeastern, building digital products across higher-ed IT and consulting. Previously spent 4 years at Capgemini with Mercedes-Benz R&D, leading roadmap execution, Agile delivery, and cross-functional alignment.",
   email: "singh.simran@northeastern.edu",
   phone: "(857) 707-9451",
-  linkedin: "https://www.linkedin.com/in/singh-simran",
+  linkedin: "https://www.linkedin.com/in/simran-p-singh/",
   github: "https://github.com/simran-129",
   resumeUrl: "/resume.pdf",
 };
