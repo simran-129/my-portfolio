@@ -67,12 +67,12 @@ export const aboutContent = {
 export const experience = [
   {
     id: 1,
-    role: "Digital Product Experience Assistant",
+    role: "Digital Product Lead",
     company: "Northeastern University · Information Technology Services",
-    duration: "Feb 2025 - Present",
+    duration: "Feb 2026 - Present",
     location: "Boston, MA",
     roadmapLane: "Now",
-    quarter: "2025 - Present",
+    quarter: "2026 - Present",
     epic: "Enterprise web & accessibility",
     objective: "O1 · Quality, WCAG, and stakeholder satisfaction",
     highlights: [
